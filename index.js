@@ -19,19 +19,19 @@ const randomIntegerFromInterval = (min, max) => {
 
 let timerId=null
 
-const startChngColor = () => {
+const startSwitchColor = () => {
     timerId = setInterval( () => {
             const currentColor = colors[randomIntegerFromInterval(0,colors.length-1)];
             refs.body.style.backgroundColor=currentColor;
             // console.log(currentColor);
     }, 1000);
-    refs.startButton.removeEventListener('click', startChngColor)
+    refs.startButton.removeEventListener('click', startSwitchColor)
     
 };
-const stopChngColor = () =>{
+const stopSwitchColor = () =>{
     clearInterval(timerId);
-    refs.startButton.addEventListener('click', startChngColor);
+    refs.startButton.addEventListener('click', startSwitchColor);
 }
 
-  refs.startButton.addEventListener('click', startChngColor);
-  refs.stopButton.addEventListener('click', stopChngColor);
+  refs.startButton.addEventListener('click', startSwitchColor);
+  refs.stopButton.addEventListener('click', stopSwitchColor);
